@@ -17,11 +17,15 @@ const init = async() => {
             },
         },
     });
-
     server.route(routes);
 
-    await server.start();
-    console.log(`Server berjalan pada ${server.info.uri}`);
+    try {
+        await server.start();
+        console.log(`Server berjalan pada ${server.info.uri}`);
+    } catch (error) {
+        console.log(error)
+    }
+
 };
 
 init();
